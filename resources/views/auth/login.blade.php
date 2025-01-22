@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="robots" content="noindex,nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Login | J99 Trans Admin</title>
-  <link rel="icon" type="image/x-icon" href="{{asset('assets/images/logo/j99-favicon.png')}}">
+  <title>Login | Admin</title>
+  <link rel="icon" type="image/x-icon" href="{{asset('ui/images/favicon.png')}}">
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -21,7 +21,7 @@
   <!-- /.login-logo -->
   <div class="card card-outline card-danger">
     <div class="card-header text-center">
-        <img src="{{asset('assets/images/logo/j99-logo-wide.png')}}" alt="J99 Logo" height="38" style="opacity: .8">
+        <img src="{{asset('ui/images/ironmaidenwide.jpg')}}" alt="Wide Logo" height="38" style="opacity: .8">
     </div>
     <div class="card-body">
       @if($errors->any())

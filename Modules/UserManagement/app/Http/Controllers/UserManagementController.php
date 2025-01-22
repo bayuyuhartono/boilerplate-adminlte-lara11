@@ -1,18 +1,18 @@
 <?php
 
-namespace Modules\Setting\Http\Controllers;
+namespace Modules\UserManagement\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class SettingController extends Controller
+class UserManagementController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('setting::index');
+        return view('usermanagement::index');
     }
 
     /**
@@ -20,7 +20,7 @@ class SettingController extends Controller
      */
     public function create()
     {
-        return view('setting::create');
+        return view('usermanagement::create');
     }
 
     /**
@@ -36,7 +36,7 @@ class SettingController extends Controller
      */
     public function show($id)
     {
-        return view('setting::show');
+        return view('usermanagement::show');
     }
 
     /**
@@ -44,7 +44,7 @@ class SettingController extends Controller
      */
     public function edit($id)
     {
-        return view('setting::edit');
+        return view('usermanagement::edit');
     }
 
     /**

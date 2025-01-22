@@ -63,7 +63,7 @@ class Menu extends Model
 
         $query = DB::table("rbac_menu AS menu")
             ->select('menu.id', 'menu.title', 'menu.url', 'menu.icon')
-            ->join("ops_permission AS perm", "perm.slug", "=", "menu.slug")
+            ->join("rbac_permission AS perm", "perm.slug", "=", "menu.slug")
             ->join("rbac_role_permission AS roleperm", "roleperm.permission_id", "=", "perm.id")
             ->where('roleperm.role_id', $role_id)
             ->where('perm.access', 'index')
@@ -82,7 +82,7 @@ class Menu extends Model
 
         $query = DB::table("rbac_menu AS menu")
             ->select('menu.id', 'menu.title', 'menu.url', 'menu.icon')
-            ->join("ops_permission AS perm", "perm.slug", "=", "menu.slug")
+            ->join("rbac_permission AS perm", "perm.slug", "=", "menu.slug")
             ->join("rbac_role_permission AS roleperm", "roleperm.permission_id", "=", "perm.id")
             ->where('roleperm.role_id', $role_id)
             ->where('perm.access', 'show')
@@ -96,7 +96,7 @@ class Menu extends Model
 
     public function scopeSavePermission($query, $data)
     {
-        $query = DB::table("ops_permission")->insert($data);
+        $query = DB::table("rbac_permission")->insert($data);
 
         return $query;
     }

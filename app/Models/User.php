@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -46,5 +47,28 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function scopeGetUserList($query)
+    {
+        $query = DB::table("users")
+            ->select('users.uuid','users.name','users.email','users.role_uuid','role.title as rolename')
+            ->join("rbac_role AS role", "role.uuid", "=", "users.role_uuid")
+            ->orderBy('users.created_at')
+            ->get();
+
+        return $query;
+    }
+
+    public function scopeGetUser($query, $uuid)
+    {
+        $query = DB::table("users")
+            ->select('users.uuid','users.name','users.email','users.role_uuid','role.title as rolename')
+            ->join("rbac_role AS role", "role.uuid", "=", "users.role_uuid")
+            ->where('users.uuid', $uuid)
+            ->orderBy('users.created_at')
+            ->first();
+
+        return $query;
     }
 }
