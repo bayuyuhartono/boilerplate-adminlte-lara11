@@ -1,4 +1,5 @@
 {
     "Dashboard": true,
-    "UserManagement": true
+    "UserManagement": true,
+    "MasterData": true
 }
