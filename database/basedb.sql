@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.5-10.4.28-MariaDB)
 # Database: adminlara11
-# Generation Time: 2025-01-22 20:05:16 +0000
+# Generation Time: 2025-01-24 11:14:32 +0000
 # ************************************************************
 
 
@@ -107,6 +107,68 @@ CREATE TABLE `jobs` (
 
 
 
+# Dump of table master_city
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `master_city`;
+
+CREATE TABLE `master_city` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `uuid` varchar(255) DEFAULT NULL,
+  `country_uuid` varchar(255) DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+LOCK TABLES `master_city` WRITE;
+/*!40000 ALTER TABLE `master_city` DISABLE KEYS */;
+
+INSERT INTO `master_city` (`id`, `uuid`, `country_uuid`, `name`, `created_at`, `updated_at`)
+VALUES
+	(1,'57936390-b81f-460c-92f6-db0ae0e98c2c','03cd8f65-78b9-4ee2-b0ae-ade918e4833b','Ohio','2025-01-24 10:52:57','2025-01-24 10:52:57'),
+	(3,'b512be59-6f49-4aac-b5f2-77edd3c273bf','03cd8f65-78b9-4ee2-b0ae-ade918e4833b','Boston','2025-01-24 10:58:10','2025-01-24 10:58:10'),
+	(5,'b090230d-65ad-4cff-af96-00d1ec1153cc','03cd8f65-78b9-4ee2-b0ae-ade918e4833b','Michigan','2025-01-24 10:58:47','2025-01-24 10:58:47'),
+	(6,'cee4d08c-4a44-4d20-94d3-55b224b41349','b85a14e7-4414-451d-acee-86e5f4a4645d','Surabaya','2025-01-24 11:06:30','2025-01-24 11:06:30'),
+	(7,'a1269ee5-6ae7-4fb0-a9fd-45dfa9887812','b85a14e7-4414-451d-acee-86e5f4a4645d','Jakarta','2025-01-24 11:06:38','2025-01-24 11:06:38');
+
+/*!40000 ALTER TABLE `master_city` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table master_country
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `master_country`;
+
+CREATE TABLE `master_country` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `uuid` varchar(255) DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+LOCK TABLES `master_country` WRITE;
+/*!40000 ALTER TABLE `master_country` DISABLE KEYS */;
+
+INSERT INTO `master_country` (`id`, `uuid`, `name`, `created_at`, `updated_at`)
+VALUES
+	(1,'b85a14e7-4414-451d-acee-86e5f4a4645d','Indonesia','2025-01-24 10:37:42','2025-01-24 10:37:42'),
+	(2,'03cd8f65-78b9-4ee2-b0ae-ade918e4833b','USA','2025-01-24 10:37:59','2025-01-24 10:37:59'),
+	(3,'5a3caa50-4fbb-46f9-b461-d9e09b0a2577','Italy','2025-01-24 10:38:05','2025-01-24 10:38:05'),
+	(4,'1ec87a88-fc53-40bf-a062-0af38c1f15f9','Norway','2025-01-24 10:38:16','2025-01-24 10:38:16'),
+	(5,'7babf6c2-ee51-44be-9bfb-d1c11d2f165d','Sweden','2025-01-24 10:38:21','2025-01-24 10:38:21'),
+	(6,'b9337e61-a73b-4fc8-9cdb-f6df11faccb7','Finland','2025-01-24 10:38:29','2025-01-24 10:38:29'),
+	(7,'2953bbff-374c-4e43-b790-66b2d77e2a5d','Canada','2025-01-24 10:38:32','2025-01-24 10:38:32'),
+	(8,'be4452ed-71e3-4cae-80f2-cf3d3123e475','Japan','2025-01-24 10:38:37','2025-01-24 10:38:56');
+
+/*!40000 ALTER TABLE `master_country` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
 # Dump of table master_genre
 # ------------------------------------------------------------
 
@@ -117,17 +179,32 @@ CREATE TABLE `master_genre` (
   `uuid` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 LOCK TABLES `master_genre` WRITE;
 /*!40000 ALTER TABLE `master_genre` DISABLE KEYS */;
 
-INSERT INTO `master_genre` (`id`, `uuid`, `name`, `created_at`)
+INSERT INTO `master_genre` (`id`, `uuid`, `name`, `created_at`, `updated_at`)
 VALUES
-	(1,'3fb501b3-9b30-4d5d-b1fe-8d8ce785d21e','Metal','2025-01-23 02:54:59'),
-	(2,'91d933d6-124f-4990-8c32-59a038adab53','Death Metal','2025-01-23 02:55:37'),
-	(3,'3efdf8c8-8496-4395-8660-6f67aa3c6738','Hardcore','2025-01-23 02:56:19');
+	(1,'06cc3b0a-8685-4b6c-a153-299593536803','Metal','2025-01-24 07:08:00','2025-01-24 07:08:00'),
+	(2,'e8a4ff79-69ac-45e3-8f28-9b7a98d1c04f','Death Metal','2025-01-24 07:08:21','2025-01-24 07:08:21'),
+	(3,'15e5c809-f1d3-4aea-a9d8-243dffeaaaf2','Metalcore','2025-01-24 07:08:31','2025-01-24 07:08:31'),
+	(4,'440c7018-37bf-4321-a7f0-30d339cd2512','Deathcore','2025-01-24 07:08:41','2025-01-24 07:08:41'),
+	(5,'dd8c03b4-0e7b-4788-aa95-496f89d6be67','Black metal','2025-01-24 07:08:47','2025-01-24 07:08:47'),
+	(6,'a6b88afe-24d5-4c2f-b107-e8cfa9b0c4f4','Grindcore','2025-01-24 07:09:00','2025-01-24 07:09:00'),
+	(7,'2e16d219-5651-4ecd-8c68-f9e9fdff20b6','Hardcore','2025-01-24 07:09:05','2025-01-24 07:09:05'),
+	(8,'7331739e-459c-43a4-8af3-2007940a1a83','Post Hardcore','2025-01-24 07:09:09','2025-01-24 07:09:09'),
+	(9,'9b885424-3feb-44d2-8952-8f6d07ed75fc','Punk','2025-01-24 07:09:14','2025-01-24 07:09:14'),
+	(10,'5de3913a-afe6-4b62-bcd0-82ae50ba8a1f','Pop','2025-01-24 07:09:20','2025-01-24 07:09:20'),
+	(11,'f2df736d-c282-49e1-b17a-782a12599910','Pop Punk','2025-01-24 07:09:24','2025-01-24 07:09:24'),
+	(13,'0c3cb287-dad7-49cb-a603-b3369109f87f','Rock','2025-01-24 07:44:19','2025-01-24 07:44:19'),
+	(14,'7f40eb85-844d-4a37-9873-e5808d7dcd91','Alternative','2025-01-24 07:44:25','2025-01-24 07:44:25'),
+	(16,'8da6ec46-0a88-4591-b88c-8c863d668934','Progressive','2025-01-24 07:44:45','2025-01-24 07:44:45'),
+	(18,'d049f44b-be10-42aa-ad1c-c016bd8c5151','Technical','2025-01-24 07:46:17','2025-01-24 07:46:17'),
+	(19,'e293216e-5a92-49a1-8c22-a5e9284194be','Jazz','2025-01-24 08:01:11','2025-01-24 08:01:11'),
+	(20,'cd68a468-503c-4203-b349-bf91b3ac7d8c','Emo','2025-01-24 08:01:14','2025-01-24 08:06:45');
 
 /*!40000 ALTER TABLE `master_genre` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -229,7 +306,9 @@ VALUES
 	(4,'Role','role','usermanagement/role','usermanagement',2,'<i class=\"far fa-circle nav-icon\"></i>',2,1,'2023-12-04 11:37:51','2023-12-02 21:38:23'),
 	(5,'Menu','menu','usermanagement/menu','usermanagement',2,'<i class=\"far fa-circle nav-icon\"></i>',3,1,'2023-12-03 01:50:54','2023-12-03 01:50:54'),
 	(26,'Master Data','masterdata','masterdata','masterdata',NULL,'<i class=\"far fa-circle nav-icon\"></i>',13,1,'2025-01-22 19:47:51','2025-01-22 19:47:51'),
-	(27,'Genre','genre','masterdata/genre','masterdata',26,'<i class=\"far fa-circle nav-icon\"></i>',1,1,'2025-01-22 19:48:48','2025-01-22 19:48:48');
+	(27,'Genre','genre','masterdata/genre','masterdata',26,'<i class=\"far fa-circle nav-icon\"></i>',1,1,'2025-01-22 19:48:48','2025-01-22 19:48:48'),
+	(28,'Country','country','masterdata/country','masterdata',26,'<i class=\"far fa-circle nav-icon\"></i>',2,1,'2025-01-24 17:36:43','2025-01-24 10:36:12'),
+	(29,'City','city','masterdata/city','masterdata',26,'<i class=\"far fa-circle nav-icon\"></i>',3,1,'2025-01-24 17:47:38','2025-01-24 10:47:19');
 
 /*!40000 ALTER TABLE `rbac_menu` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -274,7 +353,15 @@ VALUES
 	(57,'genre','show',1,'2025-01-23 02:48:48','2025-01-23 02:48:48'),
 	(58,'genre','add',1,'2025-01-23 02:48:48','2025-01-23 02:48:48'),
 	(59,'genre','edit',1,'2025-01-23 02:48:48','2025-01-23 02:48:48'),
-	(60,'genre','delete',1,'2025-01-23 02:48:48','2025-01-23 02:48:48');
+	(60,'genre','delete',1,'2025-01-23 02:48:48','2025-01-23 02:48:48'),
+	(61,'country','show',1,'2025-01-24 17:36:12','2025-01-24 17:36:12'),
+	(62,'country','add',1,'2025-01-24 17:36:12','2025-01-24 17:36:12'),
+	(63,'country','edit',1,'2025-01-24 17:36:12','2025-01-24 17:36:12'),
+	(64,'country','delete',1,'2025-01-24 17:36:12','2025-01-24 17:36:12'),
+	(65,'city','show',1,'2025-01-24 17:47:19','2025-01-24 17:47:19'),
+	(66,'city','add',1,'2025-01-24 17:47:19','2025-01-24 17:47:19'),
+	(67,'city','edit',1,'2025-01-24 17:47:19','2025-01-24 17:47:19'),
+	(68,'city','delete',1,'2025-01-24 17:47:19','2025-01-24 17:47:19');
 
 /*!40000 ALTER TABLE `rbac_permission` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -372,7 +459,7 @@ LOCK TABLES `sessions` WRITE;
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`)
 VALUES
-	('oC1htOzNPhYOcY2uU2ijPOBMIaU87NNYmnzd94Cq',1,'127.0.0.1','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36','YTo3OntzOjY6Il90b2tlbiI7czo0MDoiUERDSUJCM1ZvZXdycEp2Z1FQVmtMU24zMkF6eGdDNWMwTVlPdmlJaSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJuZXciO2E6MDp7fXM6Mzoib2xkIjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9tYXN0ZXJkYXRhL2dlbnJlIjt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE3OiJyb2xlX2luZm9fc2Vzc2lvbiI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo5OiJyb2xlX3V1aWQiO3M6MzY6IjJmOTJiYjdmLWU1ZjctNDQ3Ny1hOTAxLWMzYTc5YmFhMDg4YiI7czo1OiJ0aXRsZSI7czoxMDoiU3VwZXIgVXNlciI7czo3OiJyb2xlX2lkIjtpOjE7fXM6MTg6InJvbGVhY2Nlc3Nfc2Vzc2lvbiI7YToxNzp7aTowO3M6MTI6ImFjY291bnQgc2hvdyI7aToxO3M6MTE6ImFjY291bnQgYWRkIjtpOjI7czoxMjoiYWNjb3VudCBlZGl0IjtpOjM7czoxNDoiYWNjb3VudCBkZWxldGUiO2k6NDtzOjE0OiJkYXNoYm9hcmQgc2hvdyI7aTo1O3M6MTA6ImdlbnJlIGVkaXQiO2k6NjtzOjk6ImdlbnJlIGFkZCI7aTo3O3M6MTA6ImdlbnJlIHNob3ciO2k6ODtzOjEyOiJnZW5yZSBkZWxldGUiO2k6OTtzOjk6Im1lbnUgc2hvdyI7aToxMDtzOjg6Im1lbnUgYWRkIjtpOjExO3M6OToibWVudSBlZGl0IjtpOjEyO3M6MTE6Im1lbnUgZGVsZXRlIjtpOjEzO3M6OToicm9sZSBlZGl0IjtpOjE0O3M6ODoicm9sZSBhZGQiO2k6MTU7czo5OiJyb2xlIHNob3ciO2k6MTY7czoxMToicm9sZSBkZWxldGUiO31zOjEyOiJtZW51X3Nlc3Npb24iO086Mjk6IklsbHVtaW5hdGVcU3VwcG9ydFxDb2xsZWN0aW9uIjoyOntzOjg6IgAqAGl0ZW1zIjthOjM6e2k6MDtPOjg6InN0ZENsYXNzIjo0OntzOjI6ImlkIjtpOjE7czo1OiJ0aXRsZSI7czo5OiJEYXNoYm9hcmQiO3M6MzoidXJsIjtzOjk6ImRhc2hib2FyZCI7czo0OiJpY29uIjtzOjQ2OiI8aSBjbGFzcz0ibmF2LWljb24gZmFzIGZhLXRhY2hvbWV0ZXItYWx0Ij48L2k+Ijt9aToxO086ODoic3RkQ2xhc3MiOjU6e3M6MjoiaWQiO2k6MjY7czo1OiJ0aXRsZSI7czoxMToiTWFzdGVyIERhdGEiO3M6MzoidXJsIjtzOjEwOiJtYXN0ZXJkYXRhIjtzOjQ6Imljb24iO3M6Mzg6IjxpIGNsYXNzPSJmYXIgZmEtY2lyY2xlIG5hdi1pY29uIj48L2k+IjtzOjU6ImNoaWxkIjtPOjI5OiJJbGx1bWluYXRlXFN1cHBvcnRcQ29sbGVjdGlvbiI6Mjp7czo4OiIAKgBpdGVtcyI7YToxOntpOjA7Tzo4OiJzdGRDbGFzcyI6NDp7czoyOiJpZCI7aToyNztzOjU6InRpdGxlIjtzOjU6IkdlbnJlIjtzOjM6InVybCI7czoxNjoibWFzdGVyZGF0YS9nZW5yZSI7czo0OiJpY29uIjtzOjM4OiI8aSBjbGFzcz0iZmFyIGZhLWNpcmNsZSBuYXYtaWNvbiI+PC9pPiI7fX1zOjI4OiIAKgBlc2NhcGVXaGVuQ2FzdGluZ1RvU3RyaW5nIjtiOjA7fX1pOjI7Tzo4OiJzdGRDbGFzcyI6NTp7czoyOiJpZCI7aToyO3M6NToidGl0bGUiO3M6MTU6IlVzZXIgTWFuYWdlbWVudCI7czozOiJ1cmwiO3M6MTQ6InVzZXJtYW5hZ2VtZW50IjtzOjQ6Imljb24iO3M6Mzc6IjxpIGNsYXNzPSJuYXYtaWNvbiBmYXMgZmEtdXNlcnMiPjwvaT4iO3M6NToiY2hpbGQiO086Mjk6IklsbHVtaW5hdGVcU3VwcG9ydFxDb2xsZWN0aW9uIjoyOntzOjg6IgAqAGl0ZW1zIjthOjM6e2k6MDtPOjg6InN0ZENsYXNzIjo0OntzOjI6ImlkIjtpOjM7czo1OiJ0aXRsZSI7czo3OiJBY2NvdW50IjtzOjM6InVybCI7czoyMjoidXNlcm1hbmFnZW1lbnQvYWNjb3VudCI7czo0OiJpY29uIjtzOjM4OiI8aSBjbGFzcz0iZmFyIGZhLWNpcmNsZSBuYXYtaWNvbiI+PC9pPiI7fWk6MTtPOjg6InN0ZENsYXNzIjo0OntzOjI6ImlkIjtpOjQ7czo1OiJ0aXRsZSI7czo0OiJSb2xlIjtzOjM6InVybCI7czoxOToidXNlcm1hbmFnZW1lbnQvcm9sZSI7czo0OiJpY29uIjtzOjM4OiI8aSBjbGFzcz0iZmFyIGZhLWNpcmNsZSBuYXYtaWNvbiI+PC9pPiI7fWk6MjtPOjg6InN0ZENsYXNzIjo0OntzOjI6ImlkIjtpOjU7czo1OiJ0aXRsZSI7czo0OiJNZW51IjtzOjM6InVybCI7czoxOToidXNlcm1hbmFnZW1lbnQvbWVudSI7czo0OiJpY29uIjtzOjM4OiI8aSBjbGFzcz0iZmFyIGZhLWNpcmNsZSBuYXYtaWNvbiI+PC9pPiI7fX1zOjI4OiIAKgBlc2NhcGVXaGVuQ2FzdGluZ1RvU3RyaW5nIjtiOjA7fX19czoyODoiACoAZXNjYXBlV2hlbkNhc3RpbmdUb1N0cmluZyI7YjowO319',1737576244);
+	('EdvfhnXD5thZgGJZDA7QZblXX9bOTcInTzIEdP4F',1,'127.0.0.1','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36','YTo3OntzOjY6Il90b2tlbiI7czo0MDoibFFZVTFjS092cERqRExBNm9FdzFuOVFScm0ycDBmdXZOakRDRGFWYiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJuZXciO2E6MDp7fXM6Mzoib2xkIjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Nzk6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9tYXN0ZXJkYXRhL2NpdHkvZWRpdC9iNTEyYmU1OS02ZjQ5LTRhYWMtYjVmMi03N2VkZDNjMjczYmYiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InJvbGVfaW5mb19zZXNzaW9uIjtPOjg6InN0ZENsYXNzIjozOntzOjk6InJvbGVfdXVpZCI7czozNjoiMmY5MmJiN2YtZTVmNy00NDc3LWE5MDEtYzNhNzliYWEwODhiIjtzOjU6InRpdGxlIjtzOjEwOiJTdXBlciBVc2VyIjtzOjc6InJvbGVfaWQiO2k6MTt9czoxODoicm9sZWFjY2Vzc19zZXNzaW9uIjthOjI1OntpOjA7czoxMjoiYWNjb3VudCBzaG93IjtpOjE7czoxMToiYWNjb3VudCBhZGQiO2k6MjtzOjEyOiJhY2NvdW50IGVkaXQiO2k6MztzOjE0OiJhY2NvdW50IGRlbGV0ZSI7aTo0O3M6MTE6ImNpdHkgZGVsZXRlIjtpOjU7czo5OiJjaXR5IHNob3ciO2k6NjtzOjg6ImNpdHkgYWRkIjtpOjc7czo5OiJjaXR5IGVkaXQiO2k6ODtzOjE0OiJjb3VudHJ5IGRlbGV0ZSI7aTo5O3M6MTI6ImNvdW50cnkgZWRpdCI7aToxMDtzOjExOiJjb3VudHJ5IGFkZCI7aToxMTtzOjEyOiJjb3VudHJ5IHNob3ciO2k6MTI7czoxNDoiZGFzaGJvYXJkIHNob3ciO2k6MTM7czoxMDoiZ2VucmUgc2hvdyI7aToxNDtzOjk6ImdlbnJlIGFkZCI7aToxNTtzOjEwOiJnZW5yZSBlZGl0IjtpOjE2O3M6MTI6ImdlbnJlIGRlbGV0ZSI7aToxNztzOjk6Im1lbnUgc2hvdyI7aToxODtzOjg6Im1lbnUgYWRkIjtpOjE5O3M6OToibWVudSBlZGl0IjtpOjIwO3M6MTE6Im1lbnUgZGVsZXRlIjtpOjIxO3M6MTE6InJvbGUgZGVsZXRlIjtpOjIyO3M6OToicm9sZSBlZGl0IjtpOjIzO3M6ODoicm9sZSBhZGQiO2k6MjQ7czo5OiJyb2xlIHNob3ciO31zOjEyOiJtZW51X3Nlc3Npb24iO086Mjk6IklsbHVtaW5hdGVcU3VwcG9ydFxDb2xsZWN0aW9uIjoyOntzOjg6IgAqAGl0ZW1zIjthOjM6e2k6MDtPOjg6InN0ZENsYXNzIjo0OntzOjI6ImlkIjtpOjE7czo1OiJ0aXRsZSI7czo5OiJEYXNoYm9hcmQiO3M6MzoidXJsIjtzOjk6ImRhc2hib2FyZCI7czo0OiJpY29uIjtzOjQ2OiI8aSBjbGFzcz0ibmF2LWljb24gZmFzIGZhLXRhY2hvbWV0ZXItYWx0Ij48L2k+Ijt9aToxO086ODoic3RkQ2xhc3MiOjU6e3M6MjoiaWQiO2k6MjY7czo1OiJ0aXRsZSI7czoxMToiTWFzdGVyIERhdGEiO3M6MzoidXJsIjtzOjEwOiJtYXN0ZXJkYXRhIjtzOjQ6Imljb24iO3M6Mzg6IjxpIGNsYXNzPSJmYXIgZmEtY2lyY2xlIG5hdi1pY29uIj48L2k+IjtzOjU6ImNoaWxkIjtPOjI5OiJJbGx1bWluYXRlXFN1cHBvcnRcQ29sbGVjdGlvbiI6Mjp7czo4OiIAKgBpdGVtcyI7YTozOntpOjA7Tzo4OiJzdGRDbGFzcyI6NDp7czoyOiJpZCI7aToyNztzOjU6InRpdGxlIjtzOjU6IkdlbnJlIjtzOjM6InVybCI7czoxNjoibWFzdGVyZGF0YS9nZW5yZSI7czo0OiJpY29uIjtzOjM4OiI8aSBjbGFzcz0iZmFyIGZhLWNpcmNsZSBuYXYtaWNvbiI+PC9pPiI7fWk6MTtPOjg6InN0ZENsYXNzIjo0OntzOjI6ImlkIjtpOjI4O3M6NToidGl0bGUiO3M6NzoiQ291bnRyeSI7czozOiJ1cmwiO3M6MTg6Im1hc3RlcmRhdGEvY291bnRyeSI7czo0OiJpY29uIjtzOjM4OiI8aSBjbGFzcz0iZmFyIGZhLWNpcmNsZSBuYXYtaWNvbiI+PC9pPiI7fWk6MjtPOjg6InN0ZENsYXNzIjo0OntzOjI6ImlkIjtpOjI5O3M6NToidGl0bGUiO3M6NDoiQ2l0eSI7czozOiJ1cmwiO3M6MTU6Im1hc3RlcmRhdGEvY2l0eSI7czo0OiJpY29uIjtzOjM4OiI8aSBjbGFzcz0iZmFyIGZhLWNpcmNsZSBuYXYtaWNvbiI+PC9pPiI7fX1zOjI4OiIAKgBlc2NhcGVXaGVuQ2FzdGluZ1RvU3RyaW5nIjtiOjA7fX1pOjI7Tzo4OiJzdGRDbGFzcyI6NTp7czoyOiJpZCI7aToyO3M6NToidGl0bGUiO3M6MTU6IlVzZXIgTWFuYWdlbWVudCI7czozOiJ1cmwiO3M6MTQ6InVzZXJtYW5hZ2VtZW50IjtzOjQ6Imljb24iO3M6Mzc6IjxpIGNsYXNzPSJuYXYtaWNvbiBmYXMgZmEtdXNlcnMiPjwvaT4iO3M6NToiY2hpbGQiO086Mjk6IklsbHVtaW5hdGVcU3VwcG9ydFxDb2xsZWN0aW9uIjoyOntzOjg6IgAqAGl0ZW1zIjthOjM6e2k6MDtPOjg6InN0ZENsYXNzIjo0OntzOjI6ImlkIjtpOjM7czo1OiJ0aXRsZSI7czo3OiJBY2NvdW50IjtzOjM6InVybCI7czoyMjoidXNlcm1hbmFnZW1lbnQvYWNjb3VudCI7czo0OiJpY29uIjtzOjM4OiI8aSBjbGFzcz0iZmFyIGZhLWNpcmNsZSBuYXYtaWNvbiI+PC9pPiI7fWk6MTtPOjg6InN0ZENsYXNzIjo0OntzOjI6ImlkIjtpOjQ7czo1OiJ0aXRsZSI7czo0OiJSb2xlIjtzOjM6InVybCI7czoxOToidXNlcm1hbmFnZW1lbnQvcm9sZSI7czo0OiJpY29uIjtzOjM4OiI8aSBjbGFzcz0iZmFyIGZhLWNpcmNsZSBuYXYtaWNvbiI+PC9pPiI7fWk6MjtPOjg6InN0ZENsYXNzIjo0OntzOjI6ImlkIjtpOjU7czo1OiJ0aXRsZSI7czo0OiJNZW51IjtzOjM6InVybCI7czoxOToidXNlcm1hbmFnZW1lbnQvbWVudSI7czo0OiJpY29uIjtzOjM4OiI8aSBjbGFzcz0iZmFyIGZhLWNpcmNsZSBuYXYtaWNvbiI+PC9pPiI7fX1zOjI4OiIAKgBlc2NhcGVXaGVuQ2FzdGluZ1RvU3RyaW5nIjtiOjA7fX19czoyODoiACoAZXNjYXBlV2hlbkNhc3RpbmdUb1N0cmluZyI7YjowO319',1737716888);
 
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
